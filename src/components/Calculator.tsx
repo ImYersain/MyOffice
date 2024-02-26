@@ -4,6 +4,7 @@ import {Container, Grid, Paper, Typography, Button} from '@mui/material';
 export const Calculator: FC = () => {
   const [display, setDisplay] = useState<string>('0');
   const [expression, setExpression] = useState<string>('');
+  const calcValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '.', '/', 'C'];
 
   const handleButtonClick = (value: string) => {
     switch (value) {
@@ -38,7 +39,7 @@ export const Calculator: FC = () => {
           {display}
         </Typography>
         <Grid container spacing={1} justifyContent="center">
-          {['1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '.', '/', 'C'].map((value, index) => (
+          {calcValues.map((value, index) => (
             <Grid item key={index}>
               <Button variant="outlined" onClick={() => handleButtonClick(value)}>
                 {value}
